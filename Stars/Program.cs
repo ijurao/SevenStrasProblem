@@ -30,6 +30,7 @@ namespace Stars
             return (i, n, header, line) switch
             {
                 (1, _, _, _) => header,
+                //is it possible to add constants on patter matching??
                 (8, _, _, _) => header,
                 _ => line
             };
