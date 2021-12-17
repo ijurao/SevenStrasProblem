@@ -15,6 +15,8 @@ namespace Stars
         {
             DrawFormStars(n,n,false);
             DrawFormStars(n, 1, true);
+            DrawFormStars(n, n, false);
+            DrawFormStars(n, 1, true);
         }
 
 
