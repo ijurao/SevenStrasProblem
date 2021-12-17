@@ -7,37 +7,63 @@ namespace Stars
     {
         static void Main(string[] args)
         {
-            DrawStars(64);
+            //DrawStars(64);
+            DrawSquare(8);
             Console.WriteLine("Hello World!");
         }
 
-        static void DrawStars(int n)
+        private static void DrawSquare(int n)
         {
-            DrawFormStars(n,n,false);
-            DrawFormStars(n, 1, true);
-        
+            int amoutOfBlankSpaces = n - 2;
+            for (int i = 1; i <= n; i++)
+            {
+                var line = "*" + string.Concat(Enumerable.Repeat(" ", amoutOfBlankSpaces)) + "*";
+                var header = string.Concat(Enumerable.Repeat("*", n));
+                Console.WriteLine(DisplatyLine(i, n, header, line));
+
+            }
+
+        }
+        static string DisplatyLine(int i, int n, string header, string line)
+        {
+            var p = n;
+            return (i, n, header, line) switch
+            {
+                (1, _, _, _) => header,
+                (8, _, _, _) => header,
+                _ => line
+            };
         }
 
 
-        private static void DrawFormStars(int n, int index, bool reverse)
-        {
-
-            for (int i = index; (reverse ?  i<=n : i>=0); i = (reverse ? i += 2 : i -= 2))
+        static void DrawStars(int n)
             {
-                var times = i == 0 ? 1 : i;
-                int amoutOfBlankSpaces = ((n - i) / 2);
-                var s = string.Concat(Enumerable.Repeat("*", times));
+                DrawFormStars(n, n, false);
+                DrawFormStars(n, 1, true);
 
-                if (amoutOfBlankSpaces > 0)
+            }
+
+
+            private static void DrawFormStars(int n, int index, bool reverse)
+            {
+
+                for (int i = index; (reverse ? i <= n : i >= 0); i = (reverse ? i += 2 : i -= 2))
                 {
-                    if (amoutOfBlankSpaces == n / 2 && n % 2 == 0 && !reverse) amoutOfBlankSpaces--;
-                    string blanks = string.Concat(Enumerable.Repeat(" ", amoutOfBlankSpaces)); 
-                    s = s.Insert(0, blanks);
-                    s = s.Insert(s.Length, blanks);
-                }
+                    var times = i == 0 ? 1 : i;
+                    int amoutOfBlankSpaces = ((n - i) / 2);
+                    var s = string.Concat(Enumerable.Repeat("*", times));
 
-                Console.WriteLine(s);
+                    if (amoutOfBlankSpaces > 0)
+                    {
+                        if (amoutOfBlankSpaces == n / 2 && n % 2 == 0 && !reverse) amoutOfBlankSpaces--;
+                        string blanks = string.Concat(Enumerable.Repeat(" ", amoutOfBlankSpaces));
+                        s = s.Insert(0, blanks);
+                        s = s.Insert(s.Length, blanks);
+                    }
+
+                    Console.WriteLine(s);
+                }
             }
         }
     }
-}
+
