@@ -7,7 +7,7 @@ namespace Stars
     {
         static void Main(string[] args)
         {
-            //DrawStars(64);
+            DrawStars(64);
             DrawSquare(8);
             Console.WriteLine("Hello World!");
         }
