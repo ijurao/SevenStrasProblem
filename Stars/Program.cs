@@ -30,7 +30,7 @@ namespace Stars
                 if (amoutOfBlankSpaces > 0)
                 {
                     if (amoutOfBlankSpaces == n / 2 && n % 2 == 0 && !reverse) amoutOfBlankSpaces--;
-                    string blanks = string.Concat(Enumerable.Repeat(" ", amoutOfBlankSpaces));
+                    string blanks = string.Concat(Enumerable.Repeat(" ", amoutOfBlankSpaces)); 
                     s = s.Insert(0, blanks);
                     s = s.Insert(s.Length, blanks);
                 }
